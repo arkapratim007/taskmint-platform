@@ -1,0 +1,15 @@
+{
+  "name": "project-mgmt",
+  "version": "1.0.0",
+  "description": "project management platform",
+  "license": "ISC",
+  "author": "arka pratim",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "devDependencies": {
+    "prettier": "3.9.6"
+  }
+}
