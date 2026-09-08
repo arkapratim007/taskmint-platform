@@ -13,12 +13,16 @@ const sendEmail = async (options)=>{
     const emailTextual = mailGenerator.generatePlaintext(options.mailgenContent)
     const emailHtml = mailGenerator.generate(options.mailgenContent)
 
+    //console.log(process.env.MAILTRAP_SMTP_HOST);
+    //console.log(process.env.MAILTRAP_SMTP_PORT);
+    
+
     const transporter = nodemailer.createTransport({
         host: process.env.MAILTRAP_SMTP_HOST,
         port: process.env.MAILTRAP_SMTP_PORT,
         auth: {
             user: process.env.MAILTRAP_SMTP_USER,
-            pass: process.env.MAILTRAP_SMTP_PASS,
+            pass: process.env.MAILTRAP_SMTP_PASS
         }
     })
 
