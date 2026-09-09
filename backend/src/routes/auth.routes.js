@@ -1,10 +1,17 @@
 import { Router } from "express";
-import {registerUser} from "../controllers/auth.controllers.js"
+import {login,logOutUser,registerUser} from "../controllers/auth.controllers.js";
+import { validate } from "../middlewares/validator.middleware.js";
+import { userLoginValidator, userRegisterValidator } from "../validators/index.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 
 const router= Router();
 
-router.route("/register").post(registerUser);
+router.route("/register").post(userRegisterValidator(), validate,
+registerUser);
+router.route("/login").post(userLoginValidator(),validate ,login);
+//secure route
+router.route("/logout").post(verifyJWT, logOutUser);
 
 
 export default router;
